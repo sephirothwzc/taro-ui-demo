@@ -1,3 +1,10 @@
+/* eslint-disable import/no-commonjs */
+const path = require('path');
+
+// function resolve(dir) {
+//   return path.join(__dirname, dir);
+// }
+
 const config = {
   projectName: 'wd-taro',
   date: '2022-3-22',
@@ -10,6 +17,7 @@ const config = {
   sourceRoot: 'src',
   outputRoot: 'dist',
   plugins: [],
+  // 默认值
   defineConstants: {},
   copy: {
     patterns: [],
@@ -54,6 +62,9 @@ const config = {
       },
     },
     esnextModules: ['taro-ui'],
+  },
+  alias: {
+    '@/services': path.resolve(__dirname, '..', 'src/services'),
   },
 };
 
