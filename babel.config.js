@@ -1,3 +1,4 @@
+/* eslint-disable import/no-commonjs */
 // babel-preset-taro 更多选项和默认值：
 // https://github.com/NervJS/taro/blob/next/packages/babel-preset-taro/README.md
 module.exports = {
@@ -6,7 +7,7 @@ module.exports = {
       'taro',
       {
         framework: 'react',
-        ts: true
+        ts: true,
       },
     ],
   ],
@@ -15,9 +16,9 @@ module.exports = {
       'import',
       {
         libraryName: 'taro-hooks',
-        camel2DashComponentName: false
+        camel2DashComponentName: false,
       },
       'taro-hooks',
-    ]
+    ],
   ],
 };
