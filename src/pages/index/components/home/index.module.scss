@@ -1,3 +1,8 @@
 .layout {
   color: red;
+  min-height: 100vh;
+  .swiper {
+    height: 580px;
+    width: auto;
+  }
 }

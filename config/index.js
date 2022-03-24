@@ -16,7 +16,7 @@ const config = {
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
-  plugins: ['taro-plugin-environment'],
+  plugins: ['@tarojs/plugin-sass', 'taro-plugin-environment'],
   // 默认值
   defineConstants: {},
   copy: {
@@ -69,7 +69,6 @@ const config = {
 };
 
 module.exports = function(merge) {
-  console.log(process.env.NODE_ENV);
   if (process.env.NODE_ENV === 'development') {
     return merge({}, config, require('./dev'));
   }

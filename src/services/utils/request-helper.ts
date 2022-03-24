@@ -1,4 +1,4 @@
-import { request } from '@tarojs/taro';
+import { request, navigateTo } from '@tarojs/taro';
 
 /**
  * 后端返回数据结构类型
@@ -46,6 +46,19 @@ const defOptions: any = {
 };
 
 /**
+ * 异常处理
+ * @param err
+ */
+const errorRun = err => {
+  console.log(err);
+  navigateTo({ url: '/pages/login/index' });
+  if (err.status === 400 && err.body.status === 10002) {
+    // todo: 登录
+    navigateTo({ url: '/pages/login/index' });
+  }
+};
+
+/**
  * get请求
  * @param url
  * @param data
@@ -65,10 +78,7 @@ export const requestGet = async <T extends {} = {}>(
     ...defOptions,
   })
     .then(res => res.data.data)
-    .catch(err => {
-      console.log(err);
-      return Promise.resolve(undefined);
-    });
+    .catch(errorRun);
 };
 
 /**
@@ -89,10 +99,7 @@ export const requestPost = async <T extends {} = {}>(
     header: findHeader(header),
   })
     .then(res => res.data.data)
-    .catch(err => {
-      console.log(err);
-      return Promise.resolve(undefined);
-    });
+    .catch(errorRun);
 };
 
 /**
@@ -114,10 +121,7 @@ export const requestPut = async <T extends {} = {}>(
     header: findHeader(header),
   })
     .then(res => res.data.data)
-    .catch(err => {
-      console.log(err);
-      return Promise.resolve(undefined);
-    });
+    .catch(errorRun);
 };
 
 /**
@@ -139,8 +143,5 @@ export const requestDeleate = async <T extends {} = {}>(
     header: findHeader(header),
   })
     .then(res => res.data.data)
-    .catch(err => {
-      console.log(err);
-      return Promise.resolve(undefined);
-    });
+    .catch(errorRun);
 };

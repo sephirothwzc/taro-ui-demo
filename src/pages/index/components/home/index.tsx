@@ -23,11 +23,12 @@ const Index: FC = () => {
         circular
         indicatorDots
         autoplay
+        className={styles.swiper}
       >
         {data?.map(p => (
           <SwiperItem key={p.id}>
             <View>
-              <Image src={p.bannerImageUrl}></Image>
+              <Image mode="aspectFill" src={p.bannerImageUrl}></Image>
             </View>
           </SwiperItem>
         ))}

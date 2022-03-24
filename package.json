@@ -58,6 +58,7 @@
     "@commitlint/config-angular": "^16.2.3",
     "@commitlint/config-conventional": "^16.2.1",
     "@tarojs/mini-runner": "3.4.3",
+    "@tarojs/plugin-sass": "^2.2.10",
     "@tarojs/webpack-runner": "3.4.3",
     "@types/react": "^17.0.2",
     "@types/webpack-env": "^1.13.6",
