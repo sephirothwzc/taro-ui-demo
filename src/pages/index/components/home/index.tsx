@@ -12,14 +12,15 @@ import styles from './index.module.scss';
  */
 const Index: FC = () => {
   const [title, setTitle] = useImmer('我是工作台');
-  // const { loading } = useRequest(getBannerList);
+  const { data, loading } = useRequest(getBannerList);
 
   const handleClick = () => {
     setTitle(() => new Date().toString());
   };
-  // if (loading) {
-  //   return <AtActivityIndicator mode="center"></AtActivityIndicator>;
-  // }
+  if (loading) {
+    return <AtActivityIndicator mode="center"></AtActivityIndicator>;
+  }
+  console.log(data);
   return (
     <View className={styles.layout}>
       <Swiper

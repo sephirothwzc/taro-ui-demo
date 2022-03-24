@@ -1,3 +1,4 @@
+import { request } from '@tarojs/taro';
 import { requestGet } from '../../utils/request-helper';
 
 /**
@@ -15,9 +16,20 @@ export type BannerItem = {
 /**
  * 获取banner
  */
-export const getBannerList = async (cityId?: string) => {
-  debugger;
-  return requestGet<Array<BannerItem>>('/app-web/banner/list', {
-    cityId: cityId || '156110000',
-  });
+export const getBannerList = () => {
+  return request({
+    url: '/app-web/banner/list',
+    method: 'GET',
+    data: { cityId: '156110000' },
+    mode: 'no-cors',
+  })
+    .then(res => {
+      console.log(res.data);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  // return requestGet<Array<BannerItem>>('/app-web/banner/list', {
+  //   cityId,
+  // });
 };

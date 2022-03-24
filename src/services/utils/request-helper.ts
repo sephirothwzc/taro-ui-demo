@@ -23,7 +23,8 @@ export type ResultType<T> = {
  * @param url
  * @returns
  */
-const findUrl = (url: string) => {
+export const findUrl = (url: string) => {
+  return url;
   return `${process.env.REQUEST_URL}/${url}`.replace('//', '/');
 };
 /**
@@ -31,7 +32,7 @@ const findUrl = (url: string) => {
  * @param header
  */
 const findHeader = (header?: any) => {
-  return { 'content-type': 'application/json', ...header };
+  return { 'content-type': 'application/json', ...(header || {}) };
 };
 
 /**
@@ -41,18 +42,17 @@ const findHeader = (header?: any) => {
  * @param header
  * @returns
  */
-export const requestGet = async <T extends {} = {}>(
-  url: string,
-  data: unknown,
-  header?: any
-) => {
-  const result = await request<ResultType<T>>({
-    url: findUrl(url),
+export const requestGet = async <T extends {} = {}>(url: string, data: any) => {
+  return request<ResultType<T>>({
+    url,
     method: 'GET',
     data,
-    header: findHeader(header),
-  });
-  return result.data.data;
+  })
+    .then(res => res.data.data)
+    .catch(err => {
+      console.log(err);
+      return Promise.resolve(undefined);
+    });
 };
 
 /**
