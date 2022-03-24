@@ -24,15 +24,25 @@ export type ResultType<T> = {
  * @returns
  */
 export const findUrl = (url: string) => {
+  if (process.env.TARO_ENV === 'weapp') {
+    return process.env.TARO_APP_REQUEST_URL + url;
+  }
   return url;
-  return `${process.env.REQUEST_URL}/${url}`.replace('//', '/');
 };
 /**
  * 获取header
  * @param header
  */
-const findHeader = (header?: any) => {
-  return { 'content-type': 'application/json', ...(header || {}) };
+const findHeader = (header: any = {}) => {
+  return { 'content-type': 'application/json', ...header };
+};
+
+/**
+ * 默认参数
+ * @returns
+ */
+const defOptions: any = {
+  mode: 'no-cors',
 };
 
 /**
@@ -42,11 +52,17 @@ const findHeader = (header?: any) => {
  * @param header
  * @returns
  */
-export const requestGet = async <T extends {} = {}>(url: string, data: any) => {
+export const requestGet = async <T extends {} = {}>(
+  url: string,
+  data: any,
+  header?: any
+) => {
   return request<ResultType<T>>({
-    url,
+    url: findUrl(url),
     method: 'GET',
     data,
+    header: findHeader(header),
+    ...defOptions,
   })
     .then(res => res.data.data)
     .catch(err => {
@@ -66,13 +82,17 @@ export const requestPost = async <T extends {} = {}>(
   data: unknown,
   header?: any
 ) => {
-  const result = await request<ResultType<T>>({
+  return request<ResultType<T>>({
     url: findUrl(url),
     method: 'POST',
     data,
     header: findHeader(header),
-  });
-  return result.data.data;
+  })
+    .then(res => res.data.data)
+    .catch(err => {
+      console.log(err);
+      return Promise.resolve(undefined);
+    });
 };
 
 /**
@@ -87,13 +107,17 @@ export const requestPut = async <T extends {} = {}>(
   data: unknown,
   header?: any
 ) => {
-  const result = await request<ResultType<T>>({
+  return request<ResultType<T>>({
     url: findUrl(url),
     method: 'PUT',
     data,
     header: findHeader(header),
-  });
-  return result.data.data;
+  })
+    .then(res => res.data.data)
+    .catch(err => {
+      console.log(err);
+      return Promise.resolve(undefined);
+    });
 };
 
 /**
@@ -108,11 +132,15 @@ export const requestDeleate = async <T extends {} = {}>(
   data: unknown,
   header?: any
 ) => {
-  const result = await request<ResultType<T>>({
+  return request<ResultType<T>>({
     url: findUrl(url),
     method: 'DELETE',
     data,
     header: findHeader(header),
-  });
-  return result.data.data;
+  })
+    .then(res => res.data.data)
+    .catch(err => {
+      console.log(err);
+      return Promise.resolve(undefined);
+    });
 };

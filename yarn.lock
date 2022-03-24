@@ -5300,6 +5300,11 @@ default-gateway@^4.2.0:
     execa "^1.0.0"
     ip-regex "^2.1.0"
 
+default-passive-events@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npmmirror.com/default-passive-events/-/default-passive-events-2.0.0.tgz#79b1aa67becbaab38b718469b5480fef92eda649"
+  integrity sha512-eMtt76GpDVngZQ3ocgvRcNCklUMwID1PaNbCNxfpDXuiOXttSh0HzBbda1HU9SIUsDc02vb7g9+3I5tlqe/qMQ==
+
 defaults@^1.0.3:
   version "1.0.3"
   resolved "https://registry.npmmirror.com/defaults/-/defaults-1.0.3.tgz#c656051e9817d9ff08ed881477f3fe4019f3ef7d"
@@ -5595,6 +5600,11 @@ dot-prop@^5.1.0, dot-prop@^5.2.0:
   integrity sha512-QM8q3zDe58hqUqjraQOmzZ1LIH9SWQJTlEKCH4kJ2oQvLZk7RbQXvtDM2XEq3fwkV9CCvvH4LA0AV+ogFsBM2Q==
   dependencies:
     is-obj "^2.0.0"
+
+dotenv-expand@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.npmmirror.com/dotenv-expand/-/dotenv-expand-5.1.0.tgz#3fbaf020bfd794884072ea26b1e9791d45a629f0"
+  integrity sha512-YXQl1DSa4/PQyRfgrv6aoNjhasp/p4qs9FjJ4q4cQk+8m4r6k4ZSiEyytKG8f8W9gi8WsQtIObNmKd+tMzNTmA==
 
 dotenv@^10.0.0:
   version "10.0.0"
@@ -13596,6 +13606,14 @@ taro-hooks@latest:
     lodash-wechat "^1.0.0"
     lodash.uniq "^4.5.0"
     querystring "^0.2.1"
+
+taro-plugin-environment@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmmirror.com/taro-plugin-environment/-/taro-plugin-environment-1.0.0.tgz#4d38898ee50177c864d80eac568bf87693e4df59"
+  integrity sha512-LvUeBRW5wMDl/bqu2BlhD6E4IxKPmi/yBBCRufsCOuuTHx/tslhRZvtyVecUL5O/ZQ3Hhs0k79qg2kjq+CKb3w==
+  dependencies:
+    dotenv "^10.0.0"
+    dotenv-expand "^5.1.0"
 
 taro-ui@^3.0.0-alpha.3:
   version "3.0.0-alpha.10"

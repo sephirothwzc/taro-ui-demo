@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import 'default-passive-events';
 import './app.scss';
 
 class App extends Component {

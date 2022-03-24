@@ -16,7 +16,7 @@ const config = {
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
-  plugins: [],
+  plugins: ['taro-plugin-environment'],
   // 默认值
   defineConstants: {},
   copy: {
