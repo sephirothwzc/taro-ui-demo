@@ -19,6 +19,28 @@ export type ResultType<T> = {
 };
 
 /**
+ * 分页
+ */
+export type ResultPageType<T> = {
+  /**
+   * 页数
+   */
+  page: number;
+  /**
+   * page size
+   */
+  size: number;
+  /**
+   * total rows
+   */
+  total: number;
+  /**
+   * dataSource
+   */
+  data: Array<T>;
+};
+
+/**
  * 获取url
  * @param url
  * @returns

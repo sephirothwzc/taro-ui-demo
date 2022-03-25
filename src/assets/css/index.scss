@@ -4,3 +4,21 @@
   justify-content: center;
   align-items: center;
 }
+
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+// 主页面
+.usePage {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+// 卡片
+.useCard {
+  background: #ffffff;
+  box-shadow: 0px 4px 20px 0px rgba(71, 108, 231, 0.13);
+  border-radius: 20px;
+}
