@@ -13,7 +13,7 @@ const Index = () => {
   };
 
   return (
-    <View className="wrapper">
+    <View>
       <Home></Home>
       <AtTabBar
         fixed

@@ -67,7 +67,7 @@ const errorRun = err => {
  */
 export const requestGet = async <T extends {} = {}>(
   url: string,
-  data: any,
+  data?: any,
   header?: any
 ) => {
   return request<ResultType<T>>({

@@ -20,3 +20,10 @@ export const getBannerList = () => {
     cityId: '156110000',
   });
 };
+
+/**
+ * 查询总积分
+ */
+export const getBrokerScoreTotal = () => {
+  return requestGet<number>('/app-web/broker-score/total');
+};

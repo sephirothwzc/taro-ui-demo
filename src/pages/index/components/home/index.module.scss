@@ -1,8 +1,56 @@
+@import '~taro-ui/dist/style/components/flex.scss';
+@import '/src/assets/css/index.scss';
+
 .layout {
   color: red;
   min-height: 100vh;
   .swiper {
     height: 580px;
-    width: auto;
+    width: 750px;
+    position: absolute;
+    z-index: 1;
+  }
+  .swiperImage {
+    height: 580px;
+    width: 750px;
+  }
+  .topTag {
+    @extend .at-row;
+    @extend .at-row__justify--between;
+    position: absolute;
+    z-index: 2;
+    margin-top: 14px;
+  }
+  .iconText {
+    font-size: 24px;
+    font-weight: 500;
+    color: #ffffff;
+    height: 64px;
+    line-height: 64px;
+    background: rgba(255, 255, 255, 0.15);
+  }
+  .leftIcon {
+    @extend .flexCenter;
+    @extend .iconText;
+    border-radius: 0px 200px 200px 0px;
+    padding-left: 30px;
+    padding-right: 38px;
+    .iconImg {
+      width: 32px;
+      height: 32px;
+      padding-right: 8px;
+    }
+  }
+  .rightIcon {
+    @extend .flexCenter;
+    @extend .iconText;
+    border-radius: 200px 0px 0px 200px;
+    padding-right: 30px;
+    .iconImgQd {
+      width: 32px;
+      height: 32px;
+      padding-left: 32px;
+      padding-right: 10px;
+    }
   }
 }
